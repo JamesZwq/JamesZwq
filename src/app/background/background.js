@@ -11,10 +11,11 @@ export default function Background() {
     const [isFullscreen, setFullscreen] = useState(false);
     const [justLoaded, setJustLoaded] = useState(true);
 
-
-    window.addEventListener('load', function () {
-        setJustLoaded(false);
-    })
+    useEffect(() => {
+        window.addEventListener('load', function () {
+            setJustLoaded(false);
+        })
+    }, [])
 
     useEffect(() => {
         setFullscreen(false);
