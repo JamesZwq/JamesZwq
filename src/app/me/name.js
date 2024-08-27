@@ -26,7 +26,7 @@ export default function Name({ parentRef }) {
                         "
             >
                 Good {timeOfDay},
-                <span className="text-blue-500">&nbsp;I'm</span>
+                <span className="text-blue-500">&nbsp;I&apos;m</span>
             </h1>
             <h1
                 className="

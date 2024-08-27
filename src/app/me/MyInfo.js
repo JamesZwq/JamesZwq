@@ -23,7 +23,7 @@ export default function MyInfo() {
                         "
             >
                 Good {timeOfDay},
-                <span className="text-blue-500">&nbsp;I'm</span>
+                <span className="text-blue-500">&nbsp;I&apos;m</span>
             </h2>
             <h1
                 className="
