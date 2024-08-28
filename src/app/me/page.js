@@ -80,9 +80,6 @@ export default function Me() {
                 className="absolute bottom-10 right-10"
                 onClick={() => setFullscreen(!isFullscreen)}
                 variant="outline" size="icon">
-                {/*<motion.div*/}
-                {/*    key={isFullscreen ? "minimize" : "maximize"}*/}
-                {/*>*/}
                     <motion.svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -120,7 +117,6 @@ export default function Me() {
                             animate={{x1: isFullscreen ? 3 : 14, x2: isFullscreen ? 10 : 21, y1: isFullscreen ? 21 : 10, y2: isFullscreen ? 14 : 3}}
                             transition={{duration: 0.3, ease: "easeInOut"}}/>
                     </motion.svg>
-                {/*</motion.div>*/}
             </Button>
             <Background/>
         </div>
