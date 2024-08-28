@@ -8,11 +8,13 @@ import {useTheme} from "next-themes";
 import AppBar from "../../components/AppBar/AppBar";
 import Name from "./name";
 import MyInfo from "./MyInfo";
+import {Button} from "@/components/ui/button";
+import {Maximize2,Minimize2} from "lucide-react";
 
 export default function Me() {
 
     const ref = useRef(null);
-
+    const [isFullscreen, setFullscreen] = React.useState(false);
     const {resolvedTheme} = useTheme()
 
     return (
@@ -21,36 +23,50 @@ export default function Me() {
         >
             <AppBar />
             <motion.div
-                className={`box ${resolvedTheme === 'light' ? 'box-light' : 'box-dark'}`}
+                className={`box 
+                
+                ${resolvedTheme === 'light' ? 'box-light' : 'box-dark'}
+                `
+            }
                 initial={{
                     opacity: 0,
                     scale: 0.5,
             }}
                 animate={{ opacity: 1,
                     scale: 1,
+                    height: isFullscreen ? '100vh' : '80vh',
+                    width: isFullscreen ? '100vw' : '90vw',
+                    borderRadius: isFullscreen ? '0%' : '2%',
             }}
-                // transition={{
-                //     duration: 0.8,
-                //     delay: 0.5,
-                //     ease: [0, 0.71, 0.2, 1.01]
-                // }}
+                transition={{
+                    duration: 0.8,
+                    // delay: 0.5,
+                    ease: [0, 0.71, 0.2, 1.01]
+                }}
                 style={{
                     borderRadius: "2%",
-                    // border: "5px solid transparent",
-                    // borderImage: "linear-gradient(to right, rgba(100, 0, 0, 0) 0%, rgba(0, 100, 0, 1) 100%)",
-                    // borderImageSlice: 1,
-                    // backgroundPosition: "50% 100%",
-                    // backgroundRepeat: "no-repeat",
                 }}
             >
-                <ScrollArea className="h-[200px] w-[350px] rounded-md p-4"
+                <ScrollArea className={`
+                h-full w-full
+                rounded-md p-4`}
                             style={{
-                                width: "90vw",
-                                height: "80vh",
                                 overflowY: 'scroll',
                                 borderRadius: "2%",
                                 scrollbarWidth: "none",
                                 borderImage: "linear-gradient(to right, #fbbf24, #f97316)",
+                            }}
+                            initial={{
+                                opacity: 0,
+                                scale: 0.5,
+                            }}
+                            animate={{ opacity: 1,
+                                scale: 1,
+                            }}
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.5,
+                                ease: [0, 0.71, 0.2, 1.01]
                             }}
                             ref={ref}
                 >
@@ -58,6 +74,24 @@ export default function Me() {
                     <MyInfo/>
                 </ScrollArea>
             </motion.div>
+            <Button
+                className="absolute bottom-10 right-10"
+                onClick={() => setFullscreen(!isFullscreen)}
+                variant="outline" size="icon">
+                <motion.div
+                    key={isFullscreen ? "minimize" : "maximize"}
+                    initial={{opacity: 0, rotate: -90, scale: 0.5}}
+                    animate={{opacity: 1, rotate: 0, scale: 1}}
+                    exit={{opacity: 0, rotate: 90, scale: 0.5}}
+                    transition={{duration: 0.3, ease: "easeInOut"}}
+                >
+                    {isFullscreen ? (
+                        <Minimize2 className="h-4 w-4"/>
+                    ) : (
+                        <Maximize2 className="h-4 w-4"/>
+                    )}
+                </motion.div>
+            </Button>
             <Background/>
         </div>
     )

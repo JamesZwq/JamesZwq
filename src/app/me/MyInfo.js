@@ -7,7 +7,6 @@ import * as React from "react";
 export default function MyInfo() {
     const date = new Date();
     const hours = date.getHours();
-    const timeOfDay = hours < 12 ? "morning" : hours < 18 ? "afternoon" : "evening";
     return (
         <div className="
                     flex
@@ -15,45 +14,17 @@ export default function MyInfo() {
                     justify-center
                     items-center
                     h-full w-full">
-            <h2
+            I am a
+            <div
                 className="
-                        text-4xl
-                        font-bold text-center
-                        w-full
-                        "
-            >
-                Good {timeOfDay},
-                <span className="text-blue-500">&nbsp;I&apos;m</span>
-            </h2>
-            <h1
-                className="
-                        text-6xl h-60 p-3 grid
-                        font-bold text-center text-transparent bg-clip-text
-                        sm:text-6xl lg:text-6xl justify-center items-center
-                        w-full animated-gradient
-                        "
+                    text-center text-transparent bg-clip-text animated-gradient"
                 style={{
-                    backgroundImage: "linear-gradient(to right, #fbbf24, #f97316)",
+                    backgroundImage: "linear-gradient(to right, #a855f7, #f43f5e)",
+                    textShadow: "0px -1px 2px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.1)",
                 }}
             >
-                Wenqian Zhang
-            </h1>
-            <h2
-                className="
-                        text-4xl
-                        font-bold text-center
-                        w-full
-                        "
-            >
-                <span className="font-bold text-center text-transparent bg-clip-text animated-gradient"
-                      style={{
-                          backgroundImage: "linear-gradient(to right, #a855f7, #f43f5e)",
-                      }}
-                >
-                    Welcome
-                </span>
-                &nbsp;to my personal website
-            </h2>
+                software engineer
+            </div>
 
         </div>
     )

@@ -71,7 +71,7 @@ export default function Name({ parentRef }) {
 
             <motion.div
                 style={{
-                    bottom: "10px",
+                    bottom: "20px",
                     position: "absolute",
                     cursor: "pointer",
                 }}
