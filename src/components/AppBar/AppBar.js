@@ -24,9 +24,15 @@ export default function AppBar() {
         }}
         >
             <div className="mx-auto flex justify-between items-center">
-                <div className="text-lg font-bold">
-                    <Link href="/">MyApp</Link>
-                </div>
+                {/*<div className="text-lg font-bold">*/}
+                {/*    <Link href="/">MyApp</Link>*/}
+                {/*</div>*/}
+                <DarkLightButton />
+                <DarkLightButton />
+                <DarkLightButton />
+                <DarkLightButton />
+                <DarkLightButton />
+                <DarkLightButton />
                 <DarkLightButton />
             </div>
         </motion.header>

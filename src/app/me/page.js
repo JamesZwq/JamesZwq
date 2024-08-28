@@ -2,17 +2,15 @@
 import * as React from "react"
 import {ScrollArea} from "@radix-ui/react-scroll-area";
 import Background from "../background/background";
-import {motion, useScroll} from "framer-motion";
-import {useEffect, useRef} from "react";
+import {motion} from "framer-motion";
+import {useRef} from "react";
 import {useTheme} from "next-themes";
 import AppBar from "../../components/AppBar/AppBar";
 import Name from "./name";
 import MyInfo from "./MyInfo";
 
-export default function Home() {
-    const tags = Array.from({ length: 100 }).map(
-        (_, i, a) => `v1.2.0-beta.${a.length - i}`
-    )
+export default function Me() {
+
     const ref = useRef(null);
 
     const {resolvedTheme} = useTheme()
