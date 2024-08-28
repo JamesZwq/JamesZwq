@@ -39,7 +39,7 @@ export default function Name({ parentRef }) {
                         w-full animated-gradient
                         "
                 style={{
-                    backgroundImage: "linear-gradient(to right, #fbbf24, #f97316)",
+                    backgroundImage: "linear-gradient(to right, #a855f7, #f43f5e)",
                     fontSize: 'clamp(2rem, 8vw, 9rem)',
                 }}
             >
@@ -60,13 +60,22 @@ export default function Name({ parentRef }) {
                 <span className="
                 text-center text-transparent bg-clip-text animated-gradient"
                       style={{
-                          backgroundImage: "linear-gradient(to right, #a855f7, #f43f5e)",
+                          backgroundImage: "linear-gradient(to right, #f6d365, #fda085)",
                           textShadow: "0px -1px 2px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.1)",
                       }}
                 >
                     Welcome
                 </span>
-                &nbsp;to my personal website
+                &nbsp;to my&nbsp;
+                <span className="
+                {/*font-*/}
+                text-center text-transparent bg-clip-text animated-gradient"
+                      style={{
+                          backgroundImage: "linear-gradient(to right, #2193b0, #6dd5ed)",
+                      }}
+                >
+                    Personal Website
+                </span>
             </div>
 
             <motion.div
@@ -76,7 +85,7 @@ export default function Name({ parentRef }) {
                     cursor: "pointer",
                 }}
                 whileHover={{scale: 1.5}}
-                animate={{y:  -10}}
+                animate={{y: -10}}
                 onClick={() => {
                     const height = parentRef.current.clientHeight;
                     parentRef.current.scrollTo({top: height, behavior: 'smooth'}

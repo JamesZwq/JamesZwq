@@ -10,6 +10,7 @@ import Name from "./name";
 import MyInfo from "./MyInfo";
 import {Button} from "@/components/ui/button";
 import {Maximize2,Minimize2} from "lucide-react";
+import FullScreenButton from "@/components/FullScreenButton/FullScreenButton";
 
 export default function Me() {
 
@@ -41,7 +42,6 @@ export default function Me() {
                 }}
                 transition={{
                     duration: 0.8,
-                    // delay: 0.5,
                     ease: [0, 0.71, 0.2, 1.01]
                 }}
                 style={{
@@ -76,48 +76,9 @@ export default function Me() {
                     <MyInfo/>
                 </ScrollArea>
             </motion.div>
-            <Button
+            <FullScreenButton
                 className="absolute bottom-10 right-10"
-                onClick={() => setFullscreen(!isFullscreen)}
-                variant="outline" size="icon">
-                    <motion.svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                className="lucide lucide-minimize-2">
-                        <motion.polyline
-                            points={isFullscreen ? "4 14 10 14 10 20" : "15 3 21 3 21 9"}
-                            animate={{points: isFullscreen ? "4 14 10 14 10 20" : "15 3 21 3 21 9"}}
-                            transition={{duration: 0.3, ease: "easeInOut"}}
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <motion.polyline
-                            points={isFullscreen ? "20 10 14 10 14 4" : "9 21 3 21 3 15"}
-                            animate={{points: isFullscreen ? "20 10 14 10 14 4" : "9 21 3 21 3 15"}}
-                            transition={{duration: 0.3, ease: "easeInOut"}}
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <motion.line
-                            x1="14"
-                            x2="21"
-                            y1="10"
-                            y2="3"
-                            animate={{x1: isFullscreen ? 14 : 3, x2: isFullscreen ? 21 : 10, y1: isFullscreen ? 10 : 21, y2: isFullscreen ? 3 : 14}}
-                            transition={{duration: 0.3, ease: "easeInOut"}}/>
-                        <motion.line
-                            x1="3"
-                            x2="10"
-                            y1="21"
-                            y2="14"
-                            animate={{x1: isFullscreen ? 3 : 14, x2: isFullscreen ? 10 : 21, y1: isFullscreen ? 21 : 10, y2: isFullscreen ? 14 : 3}}
-                            transition={{duration: 0.3, ease: "easeInOut"}}/>
-                    </motion.svg>
-            </Button>
+                isFullscreen={isFullscreen} setFullscreen={setFullscreen}/>
             <Background/>
         </div>
     )
