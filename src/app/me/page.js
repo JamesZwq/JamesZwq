@@ -21,23 +21,24 @@ export default function Me() {
         <div
             className="flex justify-center items-center"
         >
-            <AppBar />
+            <AppBar/>
+            {/*<motion.div*/}
+            {/*    className="progress-bar"*/}
+            {/*    style={{scaleX: 0.5}}*/}
+            {/*/>*/}
             <motion.div
-                className={`box 
-                
-                ${resolvedTheme === 'light' ? 'box-light' : 'box-dark'}
-                `
-            }
+                className={`box ${resolvedTheme === 'light' ? 'box-light' : 'box-dark'}`}
                 initial={{
                     opacity: 0,
                     scale: 0.5,
-            }}
-                animate={{ opacity: 1,
+                }}
+                animate={{
+                    opacity: 1,
                     scale: 1,
                     height: isFullscreen ? '100vh' : '80vh',
                     width: isFullscreen ? '100vw' : '90vw',
                     borderRadius: isFullscreen ? '0%' : '2%',
-            }}
+                }}
                 transition={{
                     duration: 0.8,
                     // delay: 0.5,
@@ -60,7 +61,8 @@ export default function Me() {
                                 opacity: 0,
                                 scale: 0.5,
                             }}
-                            animate={{ opacity: 1,
+                            animate={{
+                                opacity: 1,
                                 scale: 1,
                             }}
                             transition={{
@@ -78,19 +80,47 @@ export default function Me() {
                 className="absolute bottom-10 right-10"
                 onClick={() => setFullscreen(!isFullscreen)}
                 variant="outline" size="icon">
-                <motion.div
-                    key={isFullscreen ? "minimize" : "maximize"}
-                    initial={{opacity: 0, rotate: -90, scale: 0.5}}
-                    animate={{opacity: 1, rotate: 0, scale: 1}}
-                    exit={{opacity: 0, rotate: 90, scale: 0.5}}
-                    transition={{duration: 0.3, ease: "easeInOut"}}
-                >
-                    {isFullscreen ? (
-                        <Minimize2 className="h-4 w-4"/>
-                    ) : (
-                        <Maximize2 className="h-4 w-4"/>
-                    )}
-                </motion.div>
+                {/*<motion.div*/}
+                {/*    key={isFullscreen ? "minimize" : "maximize"}*/}
+                {/*>*/}
+                    <motion.svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="lucide lucide-minimize-2">
+                        <motion.polyline
+                            points={isFullscreen ? "4 14 10 14 10 20" : "15 3 21 3 21 9"}
+                            animate={{points: isFullscreen ? "4 14 10 14 10 20" : "15 3 21 3 21 9"}}
+                            transition={{duration: 0.3, ease: "easeInOut"}}
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <motion.polyline
+                            points={isFullscreen ? "20 10 14 10 14 4" : "9 21 3 21 3 15"}
+                            animate={{points: isFullscreen ? "20 10 14 10 14 4" : "9 21 3 21 3 15"}}
+                            transition={{duration: 0.3, ease: "easeInOut"}}
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <motion.line
+                            x1="14"
+                            x2="21"
+                            y1="10"
+                            y2="3"
+                            animate={{x1: isFullscreen ? 14 : 3, x2: isFullscreen ? 21 : 10, y1: isFullscreen ? 10 : 21, y2: isFullscreen ? 3 : 14}}
+                            transition={{duration: 0.3, ease: "easeInOut"}}/>
+                        <motion.line
+                            x1="3"
+                            x2="10"
+                            y1="21"
+                            y2="14"
+                            animate={{x1: isFullscreen ? 3 : 14, x2: isFullscreen ? 10 : 21, y1: isFullscreen ? 21 : 10, y2: isFullscreen ? 14 : 3}}
+                            transition={{duration: 0.3, ease: "easeInOut"}}/>
+                    </motion.svg>
+                {/*</motion.div>*/}
             </Button>
             <Background/>
         </div>

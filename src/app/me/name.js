@@ -78,7 +78,7 @@ export default function Name({ parentRef }) {
                 whileHover={{scale: 1.5}}
                 animate={{y:  -10}}
                 onClick={() => {
-                    const height = window.innerHeight*0.8;
+                    const height = parentRef.current.clientHeight;
                     parentRef.current.scrollTo({top: height, behavior: 'smooth'}
                 )}}
 
