@@ -7,7 +7,7 @@
 - Currently pursuing an **MPhil**, focusing on cutting-edge research in computer science
 
 ## 🌐 Connect with Me
-Explore my work, projects, and thoughts on my [**personal website**](https://wenqian.me).
+Explore my work, projects, and thoughts on my [**personal website**](https://wenqian.dev).
 
 ---
 
